@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="stylecontactus.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Gift of Music</title>
+</head>
+<body>
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="ourmission.html">Our Mission</a>
+        <a href="contactus.html">Contact Us</a>
+    </div>
+
+    <div id="topblock">Contact Us</div>
+    <div id="info">Have any questions or interested in us playing for your event? Fill out this form to send us an email and we will get back to you shortly.</div>
+    <div class="thank-you-message" id="thankYouMessage">
+        Thank you, your message has been sent!
+    </div>
+
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone Number" required pattern="[0-9]{10}" title="Please enter a valid phone number">
+        <textarea name="message" placeholder="Message (optional)"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        var formData = new FormData(this);
+
+        fetch('email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            var thankYouMessage = document.getElementById('thankYouMessage');
+            thankYouMessage.style.display = 'block'; // Show the thank you message
+
+            setTimeout(function() {
+                thankYouMessage.style.opacity = '0'; // Start fade out
+            }, 5000); // Wait 5 seconds before starting fade out
+
+            setTimeout(function() {
+                thankYouMessage.style.display = 'none'; // Hide the element entirely
+                thankYouMessage.style.opacity = '1'; // Reset opacity for future use
+            }, 7000); // 2 seconds after fade out starts (same as transition duration)
+            
+            document.getElementById('contactForm').reset(); // Clear the form
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    </script>
+
+</body>
+</html>

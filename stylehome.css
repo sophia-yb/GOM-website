@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    background-color: #fff;
+}
+
+#welcome {
+  font-family: "Noto Sans TC";
+  text-align: center;
+  font-size: 1.3vw;
+  font-weight: 900;
+  letter-spacing: 0.3vw;
+  margin-top: 4vw;
+  color: #46628c;
+  
+}
+
+#header {
+    font-family: "Noto Sans TC";
+    font-size: 4vw;
+    font-weight: 600;
+    text-align: center;
+}
+
+#text1 {
+    font-weight: 100;
+    font-size: 1.8vw;
+    text-align: center;
+    font-style: italic;
+    
+}
+
+.menu {
+    display: flex;
+    top: 0;
+    position: sticky;
+    flex-direction: row;
+    background-color: #95bcf7;
+    justify-content: space-evenly;
+    padding: 10px;
+    z-index: 1;
+}
+
+.menu a {
+  cursor: pointer;
+  width: 180px;
+  text-decoration: none;
+  color: black;
+  border-radius: 0.7vw;
+  text-align: center;
+  line-height: 3vw;
+  font-size: 1.2vw;
+  font-family: "Noto Sans TC";
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.15vw;
+  border: none;
+}
+
+.menu a:hover {
+  background-color: #bed5f8;
+  animation: fade 0.3s;
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+    width: 100%;
+    height: 35vw;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    margin-top: 5vw;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  font-family:"Libre Baskerville";
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 1dvw;
+  color: white;
+  font-size: 2vw;
+  transition: 0.6s ease;
+  border: none;
+  user-select: none;
+  background-color: transparent;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgb(43, 43, 43);
+  border-radius: 0.5vw;
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-family: "Libre Baskerville";
+  font-size: 2vw;
+  font-weight: 400;
+  font-style: italic;
+  padding: 0.1px 0.5px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 0.725vw;
+  width: 0.7vw;
+  margin: 0 0.2vw;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation: fade 1.5s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#calendarOfEvents {
+  font-family: "Noto Sans TC";
+  text-transform: uppercase;
+  font-size: 1.5vw;
+  font-weight: 800;
+  letter-spacing: 0.2vw;
+  text-align: center;
+  margin-top: 5vw;
+}
+
+#calendar {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1vw;
+}
+
+#calendar-header {
+    font-family: "Noto Sans TC";
+    font-size: 1.2vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.7vw;
+    background-color: #507ab9;
+    color: rgb(247, 246, 246);
+}
+
+#days {
+    font-family: "Noto Sans TC";
+    display: flex;
+    justify-content: space-around;
+    padding: 0.4vw;
+    background-color: #95bcf7;
+    font-size: 1vw;
+    color: black;
+}
+
+#calendar-body {
+    font-family: "Noto Sans TC";
+    font-size: 1vw;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    background-color: black;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+#calendar-body.fade-out {
+    opacity: 0;
+}
+
+#calendar-body div {
+    padding: 1.2vw;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+#calendar-body div.today {
+    background-color: #507ab9;
+    color: #fff;
+}
+
+.change-month {
+    cursor: pointer;
+}
+
+.event-text {
+    color: #5885ca;
+    font-weight: bold; 
+    display: block; 
+    margin-top: 5px; 
+}
